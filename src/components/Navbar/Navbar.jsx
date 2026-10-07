@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 import "./Navbar.css"
+import logo from "../../assets/kind-pet-logo.png"
 
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <h1>Kind Pet</h1>
+        <img src={logo} alt="Kind Pet" />
       </div>
 
       <div className="navbar-links">

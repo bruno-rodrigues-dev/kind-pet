@@ -1,6 +1,11 @@
+import "./Home.css"
+import Hero from "../../components/Hero/Hero"
+
 function Home() {
   return (
-    <h1>Bem-vindo ao Kind Pet</h1>
+    <main className="home">
+      <Hero />
+    </main>
   )
 }
 
