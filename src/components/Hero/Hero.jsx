@@ -60,7 +60,7 @@ function Hero() {
 
           <div className="hero-card hero-card-top">
             <span>Adoções este mês</span>
-            <strong>27 felizes</strong>
+            <strong>27 pets felizes</strong>
           </div>
         </div>
       </div>
