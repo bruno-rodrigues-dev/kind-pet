@@ -1,4 +1,7 @@
-# Kind Pet
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/bruno-rodrigues-dev/kind-pet/main/public/kind-pet-favicon.png" width="50" alt="Logo Kind Pet" align="center"></br>
+  Kind Pet
+</h1>
 
 O **Kind Pet** é um projeto de desenvolvimento web voltado à divulgação de animais para adoção, com o objetivo de facilitar o acesso às informações dos animais e incentivar a adoção responsável.
 
