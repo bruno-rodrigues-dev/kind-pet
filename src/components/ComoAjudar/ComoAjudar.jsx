@@ -1,55 +1,77 @@
-import { Heart, HandHeart, Gift, Share2, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, HandHeart, Heart, House, Megaphone } from "lucide-react"
+import "./ComoAjudar.css"
 
-const formasDeAjudar = [
+const assistanceOptions = [
 {
-id: 1,
-icon: HandHeart,
-title: "Seja voluntário",
-description: "Doe seu tempo e carinho para ajudar os animais que mais precisam.",
-link: "Quero participar",
-},
-{
-id: 2,
-icon: Gift,
 title: "Faça uma doação",
-description: "Contribua com alimentos, medicamentos e outros itens essenciais.",
-link: "Quero doar",
+copy: "Sua contribuição cuida de alimentação, vacinas e atendimentos veterinários.",
+icon: Heart,
+tone: "donation",
 },
 {
-id: 3,
-icon: Share2,
-title: "Compartilhe",
-description: "Divulgue os animais disponíveis e ajude a encontrar um novo lar.",
-link: "Quero divulgar",
+title: "Seja voluntário",
+copy: "Dedique algumas horas para socialização, feiras e muito carinho.",
+icon: HandHeart,
+tone: "volunteer",
+},
+{
+title: "Ofereça lar temporário",
+copy: "Abra espaço por um tempo e ajude um animal a florescer com segurança.",
+icon: House,
+tone: "temporary-home",
+},
+{
+title: "Ajude a divulgar",
+copy: "Compartilhe histórias e aumente as chances de um encontro especial.",
+icon: Megaphone,
+tone: "sharing",
 },
 ]
 
 function ComoAjudar() {
-return ( <section id="ajudar" className="help-section"> <div className="help-container"> <div className="help-heading"> <p className="help-eyebrow"> <Heart size={15} />
-Toda ajuda faz diferença </p> <h2>
-Existem muitas formas de <em>transformar vidas.</em> </h2> <p className="help-description">
-Você não precisa adotar para fazer parte dessa história.
-Pequenas atitudes podem mudar o futuro de um animal. </p> </div>
-
-```
-    <div className="help-grid">
-      {formasDeAjudar.map((forma) => {
-        const Icon = forma.icon
+return ( <section id="ajudar" className="help-section"> <div className="help-layout"> <div className="help-grid">
+{assistanceOptions.map((option) => {
+const Icon = option.icon
 
         return (
-          <article className="help-card" key={forma.id}>
-            <div className="help-card-icon">
-              <Icon size={25} />
-            </div>
-            <h3>{forma.title}</h3>
-            <p>{forma.description}</p>
-            <a href="#contato" className="help-link">
-              {forma.link}
-              <ArrowUpRight size={17} />
-            </a>
-          </article>
+          <a
+            href="#contato"
+            key={option.title}
+            className={`help-card ${option.tone}`}
+          >
+            <span className="help-card-icon">
+              <Icon size={22} />
+            </span>
+            <h3>{option.title}</h3>
+            <p>{option.copy}</p>
+            <ArrowUpRight className="help-card-arrow" size={17} />
+          </a>
         )
       })}
+    </div>
+
+    <div className="help-content">
+      <p className="help-eyebrow">
+        <HandHeart size={15} />
+        Toda ajuda encontra um caminho
+      </p>
+
+      <h2>
+        Seu apoio vira cuidado <em>de verdade.</em>
+      </h2>
+
+      <p className="help-description">
+        Você não precisa adotar para mudar uma vida. Cada forma de
+        participação mantém a nossa rede de proteção em movimento.
+      </p>
+
+      <div className="help-image">
+        <img
+          src="/images/animais-juntos.jpg"
+          alt="Cão e gato resgatados descansando juntos"
+        />
+        <span>Uma rede de cuidado começa com você.</span>
+      </div>
     </div>
   </div>
 </section>
