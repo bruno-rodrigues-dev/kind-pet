@@ -3,6 +3,7 @@ import Hero from "../../components/Hero/Hero"
 import Animais from "../../components/Animais/animais"
 import ComoAdotar from "../../components/ComoAdotar/ComoAdotar"
 import ComoAjudar from "../../components/ComoAjudar/ComoAjudar"
+import Sobre from "../../components/SobreNos/Sobre"
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Animais />
       <ComoAdotar />
       <ComoAjudar />
+      <Sobre />
 
     </main>
   )
