@@ -51,7 +51,7 @@ onClick={(event) => event.stopPropagation()}
       </div>
 
       <a
-        href="#contato"
+        href="/fale-conosco"
         className="animal-modal-action"
         onClick={onClose}
       >

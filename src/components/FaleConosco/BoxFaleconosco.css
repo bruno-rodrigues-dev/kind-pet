@@ -1,10 +1,10 @@
 .contact-page {
-  min-height: calc(100vh - 86px);
+  min-height: calc(100vh - 200px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0px 32px;
-  background-color: #fbf7f0;
+  background-color: #f0fbf2;
   color: #1f231b;
 }
 

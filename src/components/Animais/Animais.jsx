@@ -117,7 +117,7 @@ Esperando por você </p>
 
     <p className="animals-footer">
       Não encontrou seu par ideal?{" "}
-      <a href="#contato">
+      <a href="/fale-conosco">
         Conte para a gente o que procura.
       </a>
     </p>

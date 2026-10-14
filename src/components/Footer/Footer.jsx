@@ -1,11 +1,10 @@
 import "./Footer.css"
-import icon from "../../../public/kind-pet-favicon.png"
 
 function Footer() {
   return (
     <footer className="footer">
       <img
-        src={icon}
+        src="/kind-pet-favicon.png"
         alt="Kind Pet"
         className="footer-image"
       />

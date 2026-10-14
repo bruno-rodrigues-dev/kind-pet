@@ -1,13 +1,59 @@
+
 import { useState } from "react"
 import { Check, Mail, MapPin, Phone, Send } from "lucide-react"
 import "./BoxFaleConosco.css"
 
 function FaleConosco() {
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState("")
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    setSubmitted(true)
+
+    setSending(true)
+    setError("")
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    const dados = {
+      nome: formData.get("nome"),
+      email: formData.get("email"),
+      assunto: formData.get("assunto"),
+      mensagem: formData.get("mensagem"),
+    }
+
+    try {
+      const response = await fetch(
+        "http://localhost:3001/api/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dados),
+        }
+      )
+
+      const resultado = await response.json()
+
+      if (!response.ok) {
+        throw new Error(
+          resultado.erro || "Não foi possível enviar a mensagem."
+        )
+      }
+
+      setSubmitted(true)
+      form.reset()
+    } catch (error) {
+      console.error("Erro ao enviar mensagem:", error)
+      setError(
+        "Não foi possível enviar. Verifique se o servidor está funcionando e tente novamente."
+      )
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -68,7 +114,10 @@ function FaleConosco() {
 
               <button
                 type="button"
-                onClick={() => setSubmitted(false)}
+                onClick={() => {
+                  setSubmitted(false)
+                  setError("")
+                }}
               >
                 Enviar outra mensagem
               </button>
@@ -82,7 +131,6 @@ function FaleConosco() {
                 <label htmlFor="contact-name">
                   Seu nome
                 </label>
-
                 <input
                   id="contact-name"
                   name="nome"
@@ -96,7 +144,6 @@ function FaleConosco() {
                 <label htmlFor="contact-email">
                   Seu e-mail
                 </label>
-
                 <input
                   id="contact-email"
                   name="email"
@@ -110,7 +157,6 @@ function FaleConosco() {
                 <label htmlFor="contact-subject">
                   Como quer ajudar?
                 </label>
-
                 <select
                   id="contact-subject"
                   name="assunto"
@@ -120,26 +166,13 @@ function FaleConosco() {
                   <option value="" disabled>
                     Selecione uma opção
                   </option>
-
-                  <option value="adocao">
-                    Quero adotar
-                  </option>
-
-                  <option value="doacao">
-                    Quero fazer uma doação
-                  </option>
-
-                  <option value="voluntariado">
-                    Quero ser voluntário
-                  </option>
-
+                  <option value="adocao">Quero adotar</option>
+                  <option value="doacao">Quero fazer uma doação</option>
+                  <option value="voluntariado">Quero ser voluntário</option>
                   <option value="lar-temporario">
                     Quero oferecer lar temporário
                   </option>
-
-                  <option value="outro">
-                    Outro assunto
-                  </option>
+                  <option value="outro">Outro assunto</option>
                 </select>
               </div>
 
@@ -147,7 +180,6 @@ function FaleConosco() {
                 <label htmlFor="contact-message">
                   Sua mensagem
                 </label>
-
                 <textarea
                   id="contact-message"
                   name="mensagem"
@@ -157,12 +189,19 @@ function FaleConosco() {
                 />
               </div>
 
+              {error && (
+                <p role="alert" className="contact-error">
+                  {error}
+                </p>
+              )}
+
               <button
                 type="submit"
                 className="contact-submit"
+                disabled={sending}
               >
-                Enviar mensagem
-                <Send size={16} />
+                {sending ? "Enviando..." : "Enviar mensagem"}
+                {!sending && <Send size={16} />}
               </button>
             </form>
           )}
