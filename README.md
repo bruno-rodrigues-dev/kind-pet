@@ -87,4 +87,4 @@ Desenvolver habilidades práticas em desenvolvimento frontend, aplicando conceit
 
 ---
 
-**Kind Pet** — mais carinho, mais oportunidades, mais adoção.
+**Kind Pet** — Feito com carinho pelos animais.
