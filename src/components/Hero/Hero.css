@@ -1,5 +1,6 @@
 .hero {
   position: relative;
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 8px 20px 64px;
@@ -167,8 +168,6 @@
 .hero-card-bottom {
   left: -32px;
   bottom: -28px;
-  /* display: flex; */
-  /* align-items: center; */
   gap: 12px;
   padding: 12px 20px 12px 12px;
   border-radius: 15px;

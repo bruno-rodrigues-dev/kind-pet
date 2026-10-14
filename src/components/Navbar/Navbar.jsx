@@ -11,7 +11,7 @@ function Navbar() {
       </div>
 
       <div className="navbar-links">
-        <a href="#inicio">Início</a>
+        <a href="/" className="inicio">Início</a>
         <ScrollLink to="animais" smooth={true} duration={400}>Animais</ScrollLink>
         <ScrollLink to="adotar" smooth={true} duration={400}>Como Adotar</ScrollLink>
         <ScrollLink to="ajudar" smooth={true} duration={400}>Como Ajudar</ScrollLink>

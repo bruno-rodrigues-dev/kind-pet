@@ -1,9 +1,9 @@
-import Hero from "../../components/Hero/hero"
+import BoxFaleConosco from "../../components/FaleConosco/BoxFaleConosco"
 
 function FaleConosco() {
   return (
     <main className="fale-conosco">
-      <Hero />
+      <BoxFaleConosco />
 
     </main>
   )
