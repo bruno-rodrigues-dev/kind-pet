@@ -33,7 +33,7 @@ function FaleConosco() {
               <span className="contact-detail-icon">
                 <Mail size={17} />
               </span>
-              oi@patinhas.org
+              oikindpet@gmail
             </a>
 
             <a href="tel:+5511998765432">
