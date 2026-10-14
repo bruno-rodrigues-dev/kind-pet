@@ -1,4 +1,5 @@
 import { ArrowUpRight, HandHeart, Heart, House, Megaphone } from "lucide-react"
+import caoegatoImage from "../../assets/caoegato.png"
 import "./ComoAjudar.css"
 
 const assistanceOptions = [
@@ -67,7 +68,7 @@ const Icon = option.icon
 
       <div className="help-image">
         <img
-          src="/images/animais-juntos.jpg"
+          src={caoegatoImage}
           alt="Cão e gato resgatados descansando juntos"
         />
         <span>Uma rede de cuidado começa com você.</span>
