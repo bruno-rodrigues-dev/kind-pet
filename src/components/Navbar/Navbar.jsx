@@ -1,7 +1,7 @@
-
 import { Link as ScrollLink } from "react-scroll"
 import "./Navbar.css"
 import logo from "../../assets/kind-pet-logo.png"
+import { ArrowRight } from "lucide-react"
 
 function Navbar() {
   return (
@@ -17,7 +17,9 @@ function Navbar() {
         <ScrollLink to="ajudar" smooth={true} duration={400}>Como Ajudar</ScrollLink>
         <ScrollLink to="sobre" smooth={true} duration={400}>Sobre</ScrollLink>
       </div>
-    </nav>
+      <a href="/fale-conosco" className="navbar-contact">Fale Conosco<ArrowRight size={18} /></a>
+
+    </ nav>
   )
 }
 

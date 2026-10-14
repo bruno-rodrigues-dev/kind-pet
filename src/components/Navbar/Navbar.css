@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
-  background-color: #fffaf2;
+  background-color: transparent;
   border-bottom: 1px solid #f0e5d8;
 }
 
@@ -34,4 +34,25 @@
 
 .navbar-links a.active {
   font-weight: 700;
+}
+
+.navbar-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #5c351d;
+  color: #fffaf2;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-contact:hover {
+  background-color: #a05b37;
+  transform: translateY(-2px);
 }
