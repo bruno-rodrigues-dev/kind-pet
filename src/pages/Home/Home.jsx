@@ -1,5 +1,5 @@
 import "./Home.css"
-import Hero from "../../components/Hero/Hero"
+import Hero from "../../components/Hero/hero"
 import Animais from "../../components/Animais/animais"
 import ComoAdotar from "../../components/ComoAdotar/ComoAdotar"
 import ComoAjudar from "../../components/ComoAjudar/ComoAjudar"

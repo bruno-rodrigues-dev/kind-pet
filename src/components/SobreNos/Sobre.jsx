@@ -1,13 +1,14 @@
 import { PawPrint, Sparkles, Users, House, Stethoscope } from "lucide-react"
+import "./Sobre.css"
 
 const indicators = [
   {
-    value: "1.280",
+    value: "1.288",
     label: "adoções realizadas",
     icon: Users,
   },
   {
-    value: "340",
+    value: "56",
     label: "lares temporários",
     icon: House,
   },

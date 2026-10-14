@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+
+import { Link as ScrollLink } from "react-scroll"
 import "./Navbar.css"
 import logo from "../../assets/kind-pet-logo.png"
 
@@ -10,10 +11,11 @@ function Navbar() {
       </div>
 
       <div className="navbar-links">
-        <Link to="/">Início</Link>
-        <Link to="/animais">Animais</Link>
-        <Link to="/sobre">Sobre</Link>
-        <Link to="/contato">Contato</Link>
+        <a href="#inicio">Início</a>
+        <ScrollLink to="animais" smooth={true} duration={400}>Animais</ScrollLink>
+        <ScrollLink to="adotar" smooth={true} duration={400}>Como Adotar</ScrollLink>
+        <ScrollLink to="ajudar" smooth={true} duration={400}>Como Ajudar</ScrollLink>
+        <ScrollLink to="sobre" smooth={true} duration={400}>Sobre</ScrollLink>
       </div>
     </nav>
   )
