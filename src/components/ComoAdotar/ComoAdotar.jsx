@@ -21,7 +21,7 @@ const etapas = [
 ]
 
 const lembretes = [
-  "Ter 21 anos ou responsável legal",
+  "Ter 18 anos ou responsável legal",
   "Ter espaço e tempo para adaptação",
   "Concordar com acompanhamento"
 ]
@@ -45,7 +45,7 @@ function ComoAdotar() {
             família para uma vida inteira de parceria.
           </p>
 
-          <a href="#contato" className="adotar-button">
+          <a href="/fale-conosco" className="adotar-button">
             Quero conversar sobre adoção
             <ArrowUpRight size={17} />
           </a>

@@ -42,7 +42,7 @@ function Sobre() {
           </blockquote>
 
           <p className="about-author">
-            — Equipe Patinhas que Transformam
+            — Equipe Kind Pet
           </p>
 
           <div className="about-indicators">

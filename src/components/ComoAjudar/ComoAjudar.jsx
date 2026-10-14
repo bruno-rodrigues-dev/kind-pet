@@ -36,7 +36,7 @@ const Icon = option.icon
 
         return (
           <a
-            href="#contato"
+            href="/fale-conosco"
             key={option.title}
             className={`help-card ${option.tone}`}
           >
