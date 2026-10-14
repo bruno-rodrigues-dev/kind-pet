@@ -1,39 +1,53 @@
 .navbar {
-  height: 86px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 230px;
-  background-color: transparent;
+  gap: 24px;
+  width: 100%;
+  min-height: 86px;
+  margin: 0;
+  padding: 12px clamp(16px, 5vw, 80px);
+  background-color: #fbf7f0;
   border-bottom: 1px solid #f0e5d8;
 }
 
-.navbar-logo img {
-  width: 100px;
-  height: auto;
+.navbar-logo {
   display: block;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  display: block;
+  width: clamp(70px, 7vw, 100px);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  justify-content: center;
+  gap: clamp(14px, 2vw, 30px);
+  min-width: 0;
 }
 
-.navbar-links a {
-  text-decoration: none;
+.navbar-links > a:not(.navbar-contact) {
   color: #5c351d;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-.navbar-links a:hover {
-  opacity: 0.65;
-}
-
-.navbar-links a.active {
-  font-weight: 700;
+.navbar-links > a:not(.navbar-contact):hover,
+.navbar-links > a.active {
+  color: #a05b37;
 }
 
 .navbar-contact {
@@ -41,18 +55,156 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-height: 44px;
+  padding: 12px 18px;
+  border-radius: 999px;
   background-color: #5c351d;
   color: #fffaf2;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 20px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
+  text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
 .navbar-contact:hover {
   background-color: #a05b37;
   transform: translateY(-2px);
+}
+
+.navbar-contact-mobile,
+.navbar-menu-toggle {
+  display: none;
+}
+
+.navbar-menu-toggle {
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #e7dccd;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #5c351d;
+  cursor: pointer;
+}
+
+.navbar a:focus-visible,
+.navbar button:focus-visible {
+  outline: 2px solid #a05b37;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1050px) {
+  .navbar {
+    gap: 16px;
+    padding-inline: 24px;
+  }
+
+  .navbar-links {
+    gap: 14px;
+  }
+
+  .navbar-links > a:not(.navbar-contact) {
+    font-size: 13px;
+  }
+
+  .navbar-contact {
+    padding-inline: 13px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 820px) {
+  .navbar {
+    width: 100%;
+    min-height: 76px;
+    gap: 12px;
+    padding: 10px 16px;
+  }
+
+  .navbar-logo img {
+    width: 76px;
+  }
+
+  .navbar-menu-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .navbar-contact-desktop {
+    display: none;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 22px 22px;
+    background-color: #fbf7f0;
+    border-bottom: 1px solid #e7dccd;
+    box-shadow: 0 12px 18px rgb(31 35 27 / 8%);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  }
+
+  .navbar-links.menu-aberto {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navbar-links > a:not(.navbar-contact) {
+    display: block;
+    padding: 15px 4px;
+    border-bottom: 1px solid #f0e5d8;
+    font-size: 15px;
+  }
+
+  .navbar-contact-mobile {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar {
+    padding-inline: 14px;
+  }
+
+  .navbar-logo img {
+    width: 70px;
+  }
+
+  .navbar-links {
+    padding-inline: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-links,
+  .navbar-links > a,
+  .navbar-contact {
+    transition: none;
+  }
+
+  .navbar-contact:hover {
+    transform: none;
+  }
 }
