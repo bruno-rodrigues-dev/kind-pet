@@ -38,14 +38,6 @@ O projeto está em desenvolvimento e busca oferecer uma interface intuitiva, org
 * Interface organizada em seções informativas sobre adoção responsável.
 * Layout responsivo em desenvolvimento.
 
-## Status do projeto
-
-🚧 **Em desenvolvimento**
-
-O projeto está sendo construído de forma incremental, com foco no aprendizado de React, JavaScript, estilização com CSS e boas práticas de desenvolvimento frontend.
-
-Novas funcionalidades e melhorias visuais serão adicionadas ao longo do desenvolvimento.
-
 ## Como executar o projeto
 
 ### Pré-requisitos
