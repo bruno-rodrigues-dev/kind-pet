@@ -1,16 +1,15 @@
-
 const express = require("express")
 const cors = require("cors")
 const fs = require("fs/promises")
 const path = require("path")
 
 const app = express()
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 const messagesFile = path.join(__dirname, "messages.json")
 
 app.use(cors({
-  origin: "*",
+  origin: ["https://SEU-PROJETO.vercel.app", "http://localhost:5173"],
   methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }))
@@ -63,6 +62,7 @@ app.post("/api/messages", async (req, res) => {
   }
 })
 
+// Lista as mensagens
 app.get("/api/messages", async (req, res) => {
   try {
     const conteudo = await fs.readFile(messagesFile, "utf8")
@@ -78,6 +78,7 @@ app.get("/api/messages", async (req, res) => {
   }
 })
 
+// Exclui uma mensagem
 app.delete("/api/messages/:id", async (req, res) => {
   try {
     const { id } = req.params
