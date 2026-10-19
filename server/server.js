@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001
 const messagesFile = path.join(__dirname, "messages.json")
 
 app.use(cors({
-  origin: ["https://SEU-PROJETO.vercel.app", "http://localhost:5173"],
+  origin: ["https://kind-pet-x1m7.vercel.app/", "http://localhost:5173"],
   methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }))
@@ -19,7 +19,6 @@ app.get("/", (req, res) => {
   res.send("Servidor do Kind Pet funcionando!")
 })
 
-// Recebe e salva uma mensagem
 app.post("/api/messages", async (req, res) => {
   try {
     const { nome, email, assunto, mensagem } = req.body
@@ -62,7 +61,6 @@ app.post("/api/messages", async (req, res) => {
   }
 })
 
-// Lista as mensagens
 app.get("/api/messages", async (req, res) => {
   try {
     const conteudo = await fs.readFile(messagesFile, "utf8")
@@ -78,7 +76,6 @@ app.get("/api/messages", async (req, res) => {
   }
 })
 
-// Exclui uma mensagem
 app.delete("/api/messages/:id", async (req, res) => {
   try {
     const { id } = req.params
