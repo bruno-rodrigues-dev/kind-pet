@@ -5,6 +5,7 @@ import {
   CalendarDays,
   MessageSquareText,
   Inbox,
+  Trash2,
 } from "lucide-react"
 
 import "./Mensagens.css"
@@ -13,6 +14,28 @@ function Mensagens() {
   const [mensagens, setMensagens] = useState([])
   const [carregando, setCarregando] = useState(true)
   const [erro, setErro] = useState("")
+
+  async function handleDelete(id) {
+    if (!window.confirm("Tem certeza que deseja excluir esta mensagem?")) {
+      return
+    }
+
+    try {
+      const response = await fetch(`http://localhost:3001/api/messages/${id}`, {
+        method: "DELETE",
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ erro: "Erro desconhecido" }))
+        throw new Error(`Erro ${response.status}: ${errorData.erro || response.statusText}`)
+      }
+
+      setMensagens((prev) => prev.filter((m) => m.id !== id))
+    } catch (error) {
+      console.error(error)
+      alert(`Falha ao excluir: ${error.message}`)
+    }
+  }
 
   useEffect(() => {
     async function carregarMensagens() {
@@ -122,6 +145,14 @@ function Mensagens() {
                     {new Date(mensagem.data).toLocaleString("pt-BR")}
                   </time>
                 </p>
+                <button
+                  className="message-delete-btn"
+                  onClick={() => handleDelete(mensagem.id)}
+                  aria-label="Excluir mensagem"
+                  title="Excluir mensagem"
+                >
+                  <Trash2 size={18} />
+                </button>
               </header>
 
               <div className="message-details">
