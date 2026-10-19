@@ -1,6 +1,6 @@
 import "./Home.css"
-import Hero from "../../components/Hero/hero"
-import Animais from "../../components/Animais/animais"
+import Hero from "../../components/Hero/Hero"
+import Animais from "../../components/Animais/Animais"
 import ComoAdotar from "../../components/ComoAdotar/ComoAdotar"
 import ComoAjudar from "../../components/ComoAjudar/ComoAjudar"
 import Sobre from "../../components/SobreNos/Sobre"

@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 import { Check, Mail, MapPin, Phone, Send } from "lucide-react"
-import "./BoxFaleConosco.css"
+import "./BoxFaleconosco.css"
 
 function FaleConosco() {
   const [submitted, setSubmitted] = useState(false)
