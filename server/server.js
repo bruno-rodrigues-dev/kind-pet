@@ -8,8 +8,9 @@ const PORT = process.env.PORT || 3001
 
 const messagesFile = path.join(__dirname, "messages.json")
 
-// Domínios autorizados a acessar a API
+
 const allowedOrigins = [
+  "https://kind-pet-onxj.vercel.app",
   "https://kind-pet-x1m7.vercel.app",
   "https://kind-pet-onxj-puapxnsk7-bruno-rodrigues-devs-projects.vercel.app",
   "http://localhost:5173"
