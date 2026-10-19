@@ -6,20 +6,20 @@ import "./Animais.css"
 import asta from "../../assets/asta.png"
 import luna from "../../assets/luna.png"
 import rulk from "../../assets/rulk.png"
-import thor from "../../assets/thor.png"
+import mark from "../../assets/mark.png"
 
 const animals = [
 {
 id: 1,
-name: "Thor",
+name: "Mark",
 type: "Cachorro",
-age: "3 anos",
-size: "Médio",
+age: "7 Meses",
+size: "Pequeno",
 tag: "Brincalhão ao extremo",
-image: thor,
+image: mark,
 story:
-"Thor chegou tímido, mas descobriu rápido que colo, passeio e petisco são partes importantes de uma boa vida. Ele procura uma família que ame brincadeiras tranquilas e finais de tarde ao ar livre.",
-traits: ["Vacinado", "Castrado", "Carinhoso", "Ama passeios"],
+"Mark é vacinado, brincalhão e um pouquinho teimoso. Ama passeios ao ar livre e procura uma família para compartilhar aventuras e muito carinho!",
+traits: ["Vacinado", "Brincalhão", "Teimoso", "Ama passeios"],
 color: "animal-tone-yellow",
 },
 {
