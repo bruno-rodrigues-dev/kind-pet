@@ -8,11 +8,19 @@ const PORT = process.env.PORT || 3001
 
 const messagesFile = path.join(__dirname, "messages.json")
 
+// Domínios autorizados a acessar a API
+const allowedOrigins = [
+  "https://kind-pet-x1m7.vercel.app",
+  "https://kind-pet-onxj-puapxnsk7-bruno-rodrigues-devs-projects.vercel.app",
+  "http://localhost:5173"
+]
+
 app.use(cors({
-  origin: ["https://kind-pet-x1m7.vercel.app/", "http://localhost:5173"],
+  origin: allowedOrigins,
   methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }))
+
 app.use(express.json())
 
 app.get("/", (req, res) => {
@@ -79,18 +87,23 @@ app.get("/api/messages", async (req, res) => {
 app.delete("/api/messages/:id", async (req, res) => {
   try {
     const { id } = req.params
+
     console.log(`Tentando excluir mensagem com ID: ${id}`)
 
     const conteudo = await fs.readFile(messagesFile, "utf8")
     const mensagens = JSON.parse(conteudo)
 
     const messageId = Number(id)
-    const filteredMessages = mensagens.filter((m) => m.id !== messageId)
 
-    console.log(`Total antes: ${mensagens.length}, Total depois: ${filteredMessages.length}`)
+    const mensagensFiltradas = mensagens.filter(
+      (mensagem) => mensagem.id !== messageId
+    )
 
-    if (filteredMessages.length === mensagens.length) {
-      console.log(`Mensagem ${id} não encontrada no arquivo.`)
+    console.log(
+      `Total antes: ${mensagens.length}, Total depois: ${mensagensFiltradas.length}`
+    )
+
+    if (mensagensFiltradas.length === mensagens.length) {
       return res.status(404).json({
         erro: "Mensagem não encontrada."
       })
@@ -98,16 +111,17 @@ app.delete("/api/messages/:id", async (req, res) => {
 
     await fs.writeFile(
       messagesFile,
-      JSON.stringify(filteredMessages, null, 2),
+      JSON.stringify(mensagensFiltradas, null, 2),
       "utf8"
     )
 
     console.log(`Mensagem ${id} excluída com sucesso.`)
+
     res.status(200).json({
       mensagem: "Mensagem excluída com sucesso!"
     })
   } catch (error) {
-    console.error("Erro crítico ao excluir mensagem:", error)
+    console.error("Erro crítico ao excluir a mensagem:", error)
 
     res.status(500).json({
       erro: "Erro interno ao excluir a mensagem."
@@ -115,6 +129,7 @@ app.delete("/api/messages/:id", async (req, res) => {
   }
 })
 
+// Iniciar o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`)
 })
