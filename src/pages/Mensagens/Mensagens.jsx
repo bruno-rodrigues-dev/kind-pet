@@ -21,9 +21,12 @@ function Mensagens() {
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/api/messages/${id}`, {
-        method: "DELETE",
-      })
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/messages/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ erro: "Erro desconhecido" }))
@@ -41,7 +44,7 @@ function Mensagens() {
     async function carregarMensagens() {
       try {
         const response = await fetch(
-          "http://localhost:3001/api/messages"
+          `${import.meta.env.VITE_API_URL}/api/messages`
         )
 
         if (!response.ok) {
