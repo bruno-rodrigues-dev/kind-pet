@@ -7,6 +7,12 @@ O **Kind Pet** é um projeto de desenvolvimento web voltado à divulgação de a
 
 O projeto está em desenvolvimento e busca oferecer uma interface intuitiva, organizada e responsiva, aproximando pessoas interessadas em adotar de animais que precisam de um lar.
 
+## Projeto online
+
+O Kind Pet está hospedado e pode ser acessado pelo link abaixo:
+
+https://kind-pet-onxj.vercel.app/
+
 ## Tecnologias utilizadas
 
 ### Frontend
