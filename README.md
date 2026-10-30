@@ -85,4 +85,4 @@ Desenvolver habilidades práticas em desenvolvimento frontend, aplicando conceit
 
 ---
 
-**Kind Pet** — Feito com carinho pelos animais.
+**Kind Pet** — Feito com carinho pelos animais. 💛
